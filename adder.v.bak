@@ -1,0 +1,20 @@
+module adder(In1, In2, Cin, S, Overflow);
+
+
+endmodule
+
+module full_adder(In1, In2, Cin, S);
+	input In1, In2, Cin;
+	output S;
+	
+	nand n1(first, In1, In2);
+	nand n2(secondtop, In1, first);
+	nand n3(secondbottom, first, B);
+	nand n4(third, secondtop, secondbottom);
+	nand n5(fourth, third, Cin);
+	nand n6(fifthtop, third, fourth);
+	nand n7(fifthbottom, fourth, Cin);
+	nand n8(S, fifthtop, fifthbottom);
+
+endmodule
+

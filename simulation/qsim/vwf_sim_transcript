@@ -1,0 +1,137 @@
+Determining the location of the ModelSim executable...
+
+Using: C:\intelFPGA_lite\17.0\modelsim_ase\win32aloem
+
+To specify a ModelSim executable directory, select: Tools -> Options -> EDA Tool Options
+Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-Altera will be used.
+
+**** Generating the ModelSim Testbench ****
+
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off processor -c processor --vector_source="C:/intelFPGA_lite/17.0/Project/New Processor/Waveform.vwf" --testbench_file="C:/intelFPGA_lite/17.0/Project/New Processor/simulation/qsim/Waveform.vwf.vt"
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Copyright (C) 2017  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel MegaCore Function License Agreement, or other 
+    Info: applicable license agreement, including, without limitation, 
+    Info: that your use is for the sole purpose of programming logic 
+    Info: devices manufactured by Intel and sold by Intel or its 
+    Info: authorized distributors.  Please refer to the applicable 
+    Info: agreement for further details.
+    Info: Processing started: Wed Dec 20 17:25:24 2017
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off processor -c processor --vector_source="C:/intelFPGA_lite/17.0/Project/New Processor/Waveform.vwf" --testbench_file="C:/intelFPGA_lite/17.0/Project/New Processor/simulation/qsim/Waveform.vwf.vt"
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+
+pin "S[9]" in vector source file when writing test bench files
+
+Completed successfully. 
+
+Completed successfully. 
+
+**** Generating the timing simulation netlist ****
+
+quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/intelFPGA_lite/17.0/Project/New Processor/simulation/qsim/" processor -c processor
+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Copyright (C) 2017  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel MegaCore Function License Agreement, or other 
+    Info: applicable license agreement, including, without limitation, 
+    Info: that your use is for the sole purpose of programming logic 
+    Info: devices manufactured by Intel and sold by Intel or its 
+    Info: authorized distributors.  Please refer to the applicable 
+    Info: agreement for further details.
+    Info: Processing started: Wed Dec 20 17:25:25 2017
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/intelFPGA_lite/17.0/Project/New Processor/simulation/qsim/" processor -c processor
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Warning (10905): Generated the EDA functional simulation netlist because it is the only supported netlist type for this device.
+Info (204019): Generated file processor.vo in folder "C:/intelFPGA_lite/17.0/Project/New Processor/simulation/qsim//" for EDA simulation tool
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 629 megabytes
+    Info: Processing ended: Wed Dec 20 17:25:27 2017
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+Completed successfully. 
+
+**** Generating the ModelSim .do script ****
+
+C:/intelFPGA_lite/17.0/Project/New Processor/simulation/qsim/processor.do generated.
+
+Completed successfully. 
+
+**** Running the ModelSim simulation ****
+
+C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vsim -c -do processor.do
+
+Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
+
+# 10.5b
+
+# do processor.do
+
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:25:27 on Dec 20,2017
+# vlog -work work processor.vo 
+
+# -- Compiling module adder
+# 
+# Top level modules:
+# 	adder
+# End time: 17:25:27 on Dec 20,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:25:27 on Dec 20,2017
+# vlog -work work Waveform.vwf.vt 
+# -- Compiling module adder_vlg_vec_tst
+# 
+# Top level modules:
+# 	adder_vlg_vec_tst
+# End time: 17:25:27 on Dec 20,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+
+# vsim -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.adder_vlg_vec_tst 
+# Start time: 17:25:28 on Dec 20,2017
+# Loading work.adder_vlg_vec_tst
+# Loading work.adder
+# after#25
+# ** Note: $finish    : Waveform.vwf.vt(51)
+#    Time: 1 us  Iteration: 0  Instance: /adder_vlg_vec_tst
+# End time: 17:25:28 on Dec 20,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+
+Completed successfully. 
+
+**** Converting ModelSim VCD to vector waveform ****
+
+Reading C:/intelFPGA_lite/17.0/Project/New Processor/Waveform.vwf...
+
+Reading C:/intelFPGA_lite/17.0/Project/New Processor/simulation/qsim/processor.msim.vcd...
+
+Processing channel transitions... 
+
+Writing the resulting VWF to C:/intelFPGA_lite/17.0/Project/New Processor/simulation/qsim/processor_20171220172528.sim.vwf
+
+Finished VCD to VWF conversion.
+
+Completed successfully. 
+
+All completed.
